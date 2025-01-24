@@ -15,7 +15,7 @@ def carrega_dados(caminho, colunas):
   return df
 
 colunas=['temp', 'traffic_volume', 'date_time']
-dados=carrega_dados("C:\\Users\\marco\\Desktop\\Fluxograma\\bootcamps\\kaggle\\datasets\\Metro_Interstate_Traffic_Volume.csv", colunas)
+dados=carrega_dados("Metro_Interstate_Traffic_Volume.csv", colunas)
 
 # prepara as visualizações
 st.sidebar.header('filtros')
