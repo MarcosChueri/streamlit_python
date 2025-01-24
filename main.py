@@ -5,16 +5,6 @@ import streamlit as st
 import pandas as pd
 from  datetime import timedelta
 
-# criar as funções de carregamento de dados
-  # cotações do ITAU - ITUB4 - 2010 a 2024
-  
-#@st.cache_data
-#def carrega_dados(empresa):
-#  dados_acao=yf.Ticker(empresa)
-#  cotacoes_acao=dados_acao.history(period='1d', start='2010-01-01', end='2024-01-01')
-#  cotacoes_acao=cotacoes_acao[['Close']]
-#  return cotacoes_acao
-
 @st.cache_data
 def carrega_dados(caminho, colunas):
   df=pd.read_csv(caminho, sep=',')
@@ -32,6 +22,7 @@ st.sidebar.header('filtros')
 
 # filtro colunas
 lista_colunas = st.sidebar.multiselect('escolha', dados.columns)
+
 if lista_colunas:
   dados=dados[lista_colunas]
 
@@ -53,10 +44,3 @@ O gráfico abaixo representa a variação de volume de tráfico ao passar do tem
 
 st.line_chart(dados)
 
-
-
-st.write("""
-# Fim do App""") # markdown
-
-print(dados)
-#print(dados.info())
